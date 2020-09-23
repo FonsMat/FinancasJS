@@ -1,4 +1,4 @@
-const valorFinal = document.getElementById('res'), transações = document.getElementById('transações'),
+const txtValorInicial = document.getElementById('valorInicial'), valorFinal = document.getElementById('res'), transações = document.getElementById('transações'),
 txtEntrada = {
     valor: document.getElementById('valorEntrada'),
     nome: document.getElementById('nomeEntrada')
@@ -54,9 +54,14 @@ function addSaida(){
 };
 
 function calcValorFinal(){
-    let valorFinalT = 0;
+    const valorInicial = Number(txtValorInicial.value);
+
+    let valorFinalTransacoes = 0;
     for (let valor in valores){
-        valorFinalT += valores[valor];
+        valorFinalTransacoes += valores[valor];
     };
-    valorFinal.innerText = 'Valor Final: R$' + valorFinalT;
+
+    const valorFinalTotal = valorFinalTransacoes + valorInicial;
+
+    valorFinal.innerText = 'Valor Final: R$' + valorFinalTotal;
 }
