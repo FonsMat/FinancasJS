@@ -55,13 +55,17 @@ function addSaida(){
 
 function calcValorFinal(){
     const valorInicial = Number(txtValorInicial.value);
+    if (isNaN(valorInicial)){
+        alert('você digitou um valor inicial invalido')
+    }
+    else{
+        let valorFinalTransacoes = 0;
+        for (let valor in valores){
+            valorFinalTransacoes += valores[valor];
+        };
 
-    let valorFinalTransacoes = 0;
-    for (let valor in valores){
-        valorFinalTransacoes += valores[valor];
-    };
+        const valorFinalTotal = valorFinalTransacoes + valorInicial;
 
-    const valorFinalTotal = valorFinalTransacoes + valorInicial;
-
-    valorFinal.innerText = 'Valor Final: R$' + valorFinalTotal;
+        valorFinal.innerText = 'Valor Final: R$' + valorFinalTotal;
+    }
 }
