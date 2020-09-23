@@ -17,6 +17,8 @@ function addEntrada(){
 
     if (entrada.valor <= 0 || isNaN(entrada.valor)){
         alert('[Error] Você tentou adicionar um valor invalido!');
+        (txtEntrada.valor).value = '';
+        (txtEntrada.nome).value = '';
     } 
     else{
         const novaEntrada = document.createElement('div');
@@ -39,6 +41,8 @@ function addSaida(){
 
     if (saida.valor <= 0 || isNaN(saida.valor)){
         alert('[ERROR] Você tentou adicionar um valor invalido!');
+        (txtSaida.valor).value = '';
+        (txtSaida.nome).value = '';
     }
     else{
         const novaSaida = document.createElement('div');
