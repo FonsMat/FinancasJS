@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanças</title>
+</head>
+<body>
+    <h1>Finanças</h1>
+    <div id=entradas>
+        Entradas: <br>
+        <div>Valor: R$ <input type="text" id="valorEntrada"></div> 
+        <div>Descrição: <input type="text" id="nomeEntrada"></div>
+        <button onclick="addEntrada()">Adicionar</button>
+    </div>
+    <br>
+    <div>
+        Saídas: <br>
+        <div>Valor: R$ <input type="text" id="valorSaida"></div> 
+        <div>Nome: <input type="text" id="nomeSaida"></div>
+        <button onclick="addSaida()">Adicionar</button>
+    </div>
+    <br>
+    <div id="transações"></div>
+    <br>
+    <button onclick="calcValorFinal()">Calcular Valor Final</button>
+    <br><br>
+    <div id="res">Valor Final: R$</div>
+    <script src="main.js"></script>
+</body>
+</html>
