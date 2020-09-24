@@ -11,22 +11,24 @@
     <div id=entradas>
         Entradas: <br>
         <div>Valor: R$ <input type="text" id="valorEntrada"></div> 
-        <div>Descrição <input type="text" id="nomeEntrada"></div>
+        <div>Descrição: <input type="text" id="nomeEntrada"></div>
         <button onclick="addEntrada()">Adicionar</button>
     </div>
     <br>
     <div>
         Saídas: <br>
         <div>Valor: R$ <input type="text" id="valorSaida"></div> 
-        <div>Descrição  <input type="text" id="nomeSaida"></div>
+        <div>Descrição:  <input type="text" id="nomeSaida"></div>
         <button onclick="addSaida()">Adicionar</button>
     </div>
     <br>
     <div id="transações"></div>
     <br>
-    <button onclick="calcValorFinal()">Calcular Valor Final</button>
+    <button onclick="calcular()">Calcular Dados</button>
     <br><br>
-    <div id="res">Valor Final: R$</div>
+    <div id="res">Valor final: R$</div>
+    <div id="resEntradas" style="color: #00ff00;">Valor das entradas: R$</div>
+    <div id="resSaidas" style="color: #ff0000;">Valor das saídas: R$</div>
     <script src="main.js"></script>
 </body>
 </html>

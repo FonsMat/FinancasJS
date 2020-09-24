@@ -1,4 +1,4 @@
-const txtValorInicial = document.getElementById('valorInicial'), valorFinal = document.getElementById('res'), transações = document.getElementById('transações'),
+const txtValorInicial = document.getElementById('valorInicial'), valorFinal = document.getElementById('res'), resEntradas = document.getElementById('resEntradas'), resSaidas = document.getElementById('resSaidas') , transações = document.getElementById('transações'),
 txtEntrada = {
     valor: document.getElementById('valorEntrada'),
     nome: document.getElementById('nomeEntrada')
@@ -7,7 +7,7 @@ txtEntrada = {
     nome:  document.getElementById('nomeSaida')
 };
 
-const valores = [];
+const valoresTODOS = [], valoresENTRADAS = [], valoresSAIDAS = [];
 
 function addEntrada(){
     var entrada = {
@@ -29,7 +29,8 @@ function addEntrada(){
         (txtEntrada.valor).value = '';
         (txtEntrada.nome).value = '';
 
-        valores.push(entrada.valor);
+        valoresTODOS.push(entrada.valor);
+        valoresENTRADAS.push(entrada.valor);
     };
 };
 
@@ -53,23 +54,37 @@ function addSaida(){
         (txtSaida.valor).value = '';
         (txtSaida.nome).value = '';
 
-        valores.push(0 - saida.valor);
+        valoresTODOS.push(0 - saida.valor);
+        valoresSAIDAS.push(saida.valor);
     };
 };
 
-function calcValorFinal(){
+function calcular(){
     const valorInicial = Number(txtValorInicial.value);
     if (isNaN(valorInicial)){
-        alert('você digitou um valor inicial invalido')
+        alert('você digitou um valor inicial invalido');
     }
     else{
-        let valorFinalTransacoes = 0;
-        for (let valor in valores){
-            valorFinalTransacoes += valores[valor];
+        //valor final:
+        let valorFinalTODOS = 0;
+        for (let valorTODOS in valoresTODOS){
+            valorFinalTODOS += valoresTODOS[valorTODOS];
         };
+        const valorFinalTotal = valorFinalTODOS + valorInicial;
+        valorFinal.innerText = 'Valor final: R$' + valorFinalTotal;
 
-        const valorFinalTotal = valorFinalTransacoes + valorInicial;
+        //valor entradas:
+        let valorFinalENTRADAS = 0;
+        for(let valorENTRADAS in valoresENTRADAS){
+            valorFinalENTRADAS += valoresENTRADAS[valorENTRADAS];
+        };
+        resEntradas.innerText = 'Valor das entradas: R$' + valorFinalENTRADAS;
 
-        valorFinal.innerText = 'Valor Final: R$' + valorFinalTotal;
+        //valor saídas:
+        let valorFinalSAIDAS = 0;
+        for(let valorSAIDAS in valoresSAIDAS){
+            valorFinalSAIDAS += valoresSAIDAS[valorSAIDAS];
+        };
+        resSaidas.innerText = 'Valor das saidas: R$' + valorFinalSAIDAS;
     }
 }
