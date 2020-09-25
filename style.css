@@ -17,8 +17,7 @@ h1 {
     padding-top: 25px;
     padding-left: 25px;
     text-shadow: 0.5px 0.5px 2px black;
-    position: absolute;
-    left: 350px;
+    float: left;
 }
 #valorEntrada {
     outline: none;
@@ -47,8 +46,7 @@ h1 {
     padding-top: 25px;
     padding-left: 25px;
     text-shadow: 0.5px 0.5px 2px black;
-    position: absolute;
-    right: 350px;
+    float: right;
 }
 #valorSaida{
     outline: none;
@@ -68,10 +66,11 @@ h1 {
     box-shadow: 0px 0px 3px black;
     padding-top: 25px;
     padding-left: 25px;
-    position: absolute;
-    right: 620px;
-    top: 280px;
     background-color: white;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 #calcular {
     background-color: white;
@@ -91,4 +90,12 @@ h1 {
     outline: none;
     border-radius: 6px;
     width: 60px;
+}
+#divs {
+    width: 700px;
+    height: 150px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

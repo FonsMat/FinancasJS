@@ -9,17 +9,19 @@
 <body>
     <h1>Finanças</h1>
     <div id="vi">Valor Inicial (opcional): R$<input type="text" id="valorInicial"></div><br>
-    <div id=entradas>
-        <h2>Entradas:</h2>
-        <div>Valor: R$ <input type="text" id="valorEntrada"></div> 
-        <div>Descrição: <input type="text" id="nomeEntrada"></div>
-        <button id="btnEntrada" onclick="addEntrada()">Adicionar</button>
-    </div>
-    <div id="saidas">
-        <h2>Saídas:</h2>
-        <div>Valor: R$ <input type="text" id="valorSaida"></div> 
-        <div>Descrição:  <input type="text" id="nomeSaida"></div>
-        <button id="btnSaida" onclick="addSaida()">Adicionar</button>
+    <div id="divs">
+        <div id=entradas>
+            <h2>Entradas:</h2>
+            <div>Valor: R$ <input type="text" id="valorEntrada"></div> 
+            <div>Descrição: <input type="text" id="nomeEntrada"></div>
+            <button id="btnEntrada" onclick="addEntrada()">Adicionar</button>
+        </div>
+        <div id="saidas">
+            <h2>Saídas:</h2>
+            <div>Valor: R$ <input type="text" id="valorSaida"></div> 
+            <div>Descrição:  <input type="text" id="nomeSaida"></div>
+            <button id="btnSaida" onclick="addSaida()">Adicionar</button>
+        </div>
     </div>
     <br>
     <div id="transações"></div>
