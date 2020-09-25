@@ -4,31 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finanças</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Finanças</h1>
-    <div>Valor Inicial (opcional): R$<input type="text" id="valorInicial"></div><br>
+    <div id="vi">Valor Inicial (opcional): R$<input type="text" id="valorInicial"></div><br>
     <div id=entradas>
-        Entradas: <br>
+        <h2>Entradas:</h2>
         <div>Valor: R$ <input type="text" id="valorEntrada"></div> 
         <div>Descrição: <input type="text" id="nomeEntrada"></div>
-        <button onclick="addEntrada()">Adicionar</button>
+        <button id="btnEntrada" onclick="addEntrada()">Adicionar</button>
     </div>
-    <br>
-    <div>
-        Saídas: <br>
+    <div id="saidas">
+        <h2>Saídas:</h2>
         <div>Valor: R$ <input type="text" id="valorSaida"></div> 
         <div>Descrição:  <input type="text" id="nomeSaida"></div>
-        <button onclick="addSaida()">Adicionar</button>
+        <button id="btnSaida" onclick="addSaida()">Adicionar</button>
     </div>
     <br>
     <div id="transações"></div>
     <br>
-    <button onclick="calcular()">Calcular Dados</button>
-    <br><br>
-    <div id="res">Valor final: R$</div>
-    <div id="resEntradas" style="color: #00ff00;">Valor das entradas: R$</div>
-    <div id="resSaidas" style="color: #ff0000;">Valor das saídas: R$</div>
-    <script src="main.js"></script>
+    <div id="final">
+        <button id="calcular" onclick="calcular()">Calcular Dados</button>
+        <div id="res">Valor final: R$</div>
+        <div id="resEntradas" style="color: #00ff00;">Valor das entradas: R$</div>
+        <div id="resSaidas" style="color: #ff0000;">Valor das saídas: R$</div>
+        <script src="main.js"></script>
+    </div>
 </body>
 </html>

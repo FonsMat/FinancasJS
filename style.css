@@ -1,0 +1,94 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+    text-align: center;
+    font-family: 'Comic Sans MS', Comic Sans, cursive;
+    letter-spacing: .2rem;
+}
+#entradas {
+    background-color: rgb(120, 250, 142);
+    color: rgb(255, 255, 255);
+    width: 300px;
+    height: 150px;
+    padding-top: 25px;
+    padding-left: 25px;
+    text-shadow: 0.5px 0.5px 2px black;
+    position: absolute;
+    left: 350px;
+}
+#valorEntrada {
+    outline: none;
+    border-radius: 6px;
+    border-color: rgb(120, 250, 142);
+    width: 60px;
+}
+#nomeEntrada {
+    outline: none;
+    border-radius: 6px;
+    border-color: rgb(120, 250, 142);
+    width: 170px;
+}
+#btnEntrada, #btnSaida{
+    background-color: white;
+    outline: nome;
+    border-radius: 6px;
+    width: 80px;
+    margin-top: 10px;
+}
+#saidas{
+    background-color: rgb(250, 120, 120);
+    color: rgb(255, 255, 255);
+    width: 300px;
+    height: 150px;
+    padding-top: 25px;
+    padding-left: 25px;
+    text-shadow: 0.5px 0.5px 2px black;
+    position: absolute;
+    right: 350px;
+}
+#valorSaida{
+    outline: none;
+    border-radius: 6px;
+    border-color: rgb(250, 120, 120);
+    width: 60px;
+}
+#nomeSaida{
+    outline: none;
+    border-radius: 6px;
+    border-color: rgb(250, 120, 120);
+    width: 170px;
+}
+#final{
+    width: 300px;
+    height: 150px;
+    box-shadow: 0px 0px 3px black;
+    padding-top: 25px;
+    padding-left: 25px;
+    position: absolute;
+    right: 620px;
+    top: 280px;
+    background-color: white;
+}
+#calcular {
+    background-color: white;
+    outline: nome;
+    border-radius: 6px;
+    width: 100px;
+    margin-bottom: 10px;
+    margin-left: 70px;
+}
+#transações{
+    padding-left: 10px;
+}
+#vi {
+    padding-left: 10px;
+}
+#valorInicial {
+    outline: none;
+    border-radius: 6px;
+    width: 60px;
+}
