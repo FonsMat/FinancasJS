@@ -1,4 +1,11 @@
-const txtValorInicial = document.getElementById('valorInicial'), valorFinal = document.getElementById('res'), resEntradas = document.getElementById('resEntradas'), resSaidas = document.getElementById('resSaidas') , transações = document.getElementById('transações'),
+//area de input dos elementos da DOM
+
+const txtValorInicial = document.getElementById('valorInicial'),
+resFinal = document.getElementById('res'),
+resEntradas = document.getElementById('resEntradas'),
+resSaidas = document.getElementById('resSaidas'),
+entradattxt = document.getElementById('entradattxt'),
+saidattxt = document.getElementById('saidattxt'),
 txtEntrada = {
     valor: document.getElementById('valorEntrada'),
     nome: document.getElementById('nomeEntrada')
@@ -7,10 +14,35 @@ txtEntrada = {
     nome:  document.getElementById('nomeSaida')
 };
 
-const valoresTODOS = [], valoresENTRADAS = [], valoresSAIDAS = [];
+const valoresENTRADAS = [], valoresSAIDA = [], textosENTRADA = [], textosSAIDA = [];
 
+//Parte da entrada:
+
+//Essa função vai renderizar os texto e coloca-los num array para poder depois apagar com facilidade:
+function renderEntradaText(){
+    entradattxt.innerHTML = '';
+    for (textoENTRADA of textosENTRADA){
+        //criando texto dos movimentos
+        const entradaElemento = document.createElement('div');
+        const elementoEntradaTexto = document.createTextNode(textoENTRADA);
+        entradaElemento.appendChild(elementoEntradaTexto);
+        entradaElemento.style.color = '#00ff00';
+        entradattxt.appendChild(entradaElemento);
+
+        //botão de excluir
+        const excluirEntrada = document.createElement('button');
+        const excluirEntradaTXT = document.createTextNode('excluir');
+        excluirEntrada.appendChild(excluirEntradaTXT);
+        let posEnt = textosENTRADA.indexOf(textoENTRADA);
+        excluirEntrada.setAttribute('onclick', `deleteEntrada(${posEnt})`);
+        excluirEntrada.setAttribute('id', 'exEntrada');
+        entradaElemento.appendChild(excluirEntrada);
+    }
+}
+
+//função do botão adicionar q vai chamar a função a cima:
 function addEntrada(){
-    var entrada = {
+    const entrada = {
         valor: Number((txtEntrada.valor).value),
         nome: String((txtEntrada.nome).value)
     };
@@ -21,19 +53,47 @@ function addEntrada(){
         (txtEntrada.nome).value = '';
     } 
     else{
-        const novaEntrada = document.createElement('div');
-        const novaEntradatxt = document.createTextNode('Entrada: R$' + entrada.valor + ' ' + entrada.nome);
-        novaEntrada.appendChild(novaEntradatxt);
-        novaEntrada.style.color = '#00ff00';
-        transações.appendChild(novaEntrada);
+        valoresENTRADAS.push(entrada.valor);
+
+        const textoEntrada = 'Entrada: R$' + entrada.valor + ' ' + entrada.nome;
+        textosENTRADA.push(textoEntrada);
+        
         (txtEntrada.valor).value = '';
         (txtEntrada.nome).value = '';
 
-        valoresTODOS.push(entrada.valor);
-        valoresENTRADAS.push(entrada.valor);
+        renderEntradaText();
     };
 };
 
+//função do botão de excluir:
+function deleteEntrada(posEnt){
+    textosENTRADA.splice(posEnt, 1);
+    valoresENTRADAS.splice(posEnt, 1);
+    renderEntradaText();
+}
+
+//agora a parte da Saida:
+
+function renderSaidaText(){
+    saidattxt.innerHTML = '';
+    for (textoSAIDA of textosSAIDA){
+        //criando texto dos movimentos
+        const saidaElemento = document.createElement('div');
+        const elementoSaidaTexto = document.createTextNode(textoSAIDA);
+        saidaElemento.appendChild(elementoSaidaTexto);
+        saidaElemento.style.color = '#ff0000';
+        saidattxt.appendChild(saidaElemento);
+
+        //botão de excluir
+        const excluirSaida = document.createElement('button');
+        const excluirSaidaTXT = document.createTextNode('excluir');
+        excluirSaida.appendChild(excluirSaidaTXT);
+        let posSai = textosSAIDA.indexOf(textoSAIDA);
+        excluirSaida.setAttribute('onclick', `deleteSaida(${posSai})`);
+        excluirSaida.setAttribute('id', 'exSAIDA');
+        saidaElemento.appendChild(excluirSaida);
+    }
+}
 function addSaida(){
     const saida = {
         valor: Number((txtSaida.valor).value),
@@ -46,17 +106,21 @@ function addSaida(){
         (txtSaida.nome).value = '';
     }
     else{
-        const novaSaida = document.createElement('div');
-        const novaSaidatxt = document.createTextNode('Saida: R$' + saida.valor + ' ' + saida.nome);
-        novaSaida.appendChild(novaSaidatxt);
-        novaSaida.style.color = '#ff0000';
-        transações.appendChild(novaSaida);
+        valoresSAIDA.push(saida.valor);
+
+        const textoSaida = 'Saida: R$' + saida.valor + ' ' + saida.nome;
+        textosSAIDA.push(textoSaida);
+
         (txtSaida.valor).value = '';
         (txtSaida.nome).value = '';
 
-        valoresTODOS.push(0 - saida.valor);
-        valoresSAIDAS.push(saida.valor);
+        renderSaidaText();
     };
+};
+function deleteSaida(posSai){
+    textosSAIDA.splice(posSai, 1);
+    valoresSAIDA.splice(posSai, 1);
+    renderSaidaText();
 };
 
 function calcular(){
@@ -65,14 +129,6 @@ function calcular(){
         alert('você digitou um valor inicial invalido');
     }
     else{
-        //valor final:
-        let valorFinalTODOS = 0;
-        for (let valorTODOS in valoresTODOS){
-            valorFinalTODOS += valoresTODOS[valorTODOS];
-        };
-        const valorFinalTotal = valorFinalTODOS + valorInicial;
-        valorFinal.innerText = 'Valor final: R$' + valorFinalTotal;
-
         //valor entradas:
         let valorFinalENTRADAS = 0;
         for(let valorENTRADAS in valoresENTRADAS){
@@ -82,9 +138,13 @@ function calcular(){
 
         //valor saídas:
         let valorFinalSAIDAS = 0;
-        for(let valorSAIDAS in valoresSAIDAS){
-            valorFinalSAIDAS += valoresSAIDAS[valorSAIDAS];
+        for(let valorSAIDA in valoresSAIDA){
+            valorFinalSAIDAS += valoresSAIDA[valorSAIDA];
         };
-        resSaidas.innerText = 'Valor das saidas: R$' + valorFinalSAIDAS;
-    }
+        resSaidas.innerText = 'Valor das saídas: R$' + valorFinalSAIDAS;
+
+        //valor final:
+        const valorFINAL = valorFinalENTRADAS - valorFinalSAIDAS;
+        resFinal.innerText = 'Valor final R$' + valorFINAL;
+    } 
 }
