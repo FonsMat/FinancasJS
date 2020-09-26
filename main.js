@@ -14,8 +14,18 @@ txtEntrada = {
     nome:  document.getElementById('nomeSaida')
 };
 
-const valoresENTRADAS = [], valoresSAIDA = [], textosENTRADA = [], textosSAIDA = [];
+const valoresENTRADAS = JSON.parse(localStorage.getItem('veArray')) || [],
+valoresSAIDA = JSON.parse(localStorage.getItem('vsArray')) || []
+textosENTRADA = JSON.parse(localStorage.getItem('txteArray')) || [],
+textosSAIDA = JSON.parse(localStorage.getItem('txtsArray')) || [];
 
+//storage do valor inicial:
+if(localStorage.vi){
+    valorInicial.value = localStorage.vi;
+}
+
+renderEntradaText();
+renderSaidaText();
 //Parte da entrada:
 
 //Essa função vai renderizar os texto e coloca-los num array para poder depois apagar com facilidade:
@@ -62,6 +72,7 @@ function addEntrada(){
         (txtEntrada.nome).value = '';
 
         renderEntradaText();
+        saveToStorage();
     };
 };
 
@@ -70,6 +81,7 @@ function deleteEntrada(posEnt){
     textosENTRADA.splice(posEnt, 1);
     valoresENTRADAS.splice(posEnt, 1);
     renderEntradaText();
+    saveToStorage();
 }
 
 //agora a parte da Saida:
@@ -115,13 +127,23 @@ function addSaida(){
         (txtSaida.nome).value = '';
 
         renderSaidaText();
+        saveToStorage();
     };
 };
 function deleteSaida(posSai){
     textosSAIDA.splice(posSai, 1);
     valoresSAIDA.splice(posSai, 1);
     renderSaidaText();
+    saveToStorage();
 };
+
+function saveToStorage(){
+    localStorage.setItem('vi', txtValorInicial.value);
+    localStorage.setItem('veArray', JSON.stringify(valoresENTRADAS));
+    localStorage.setItem('vsArray', JSON.stringify(valoresSAIDA));
+    localStorage.setItem('txteArray', JSON.stringify(textosENTRADA));
+    localStorage.setItem('txtsArray', JSON.stringify(textosSAIDA));
+}
 
 function calcular(){
     const valorInicial = Number(txtValorInicial.value);
@@ -144,7 +166,7 @@ function calcular(){
         resSaidas.innerText = 'Valor das saídas: R$' + valorFinalSAIDAS;
 
         //valor final:
-        const valorFINAL = valorFinalENTRADAS - valorFinalSAIDAS;
+        const valorFINAL = (valorFinalENTRADAS - valorFinalSAIDAS) + valorInicial;
         resFinal.innerText = 'Valor final R$' + valorFINAL;
     } 
 }
