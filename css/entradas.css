@@ -1,0 +1,42 @@
+
+#entradas {
+    background-color: rgb(120, 250, 142);
+    color: rgb(255, 255, 255);
+    width: 300px;
+    height: 150px;
+    padding-top: 25px;
+    padding-left: 25px;
+    text-shadow: 0.5px 0.5px 2px black;
+}
+#valorEntrada {
+    outline: none;
+    border-radius: 6px;
+    border-color: rgb(120, 250, 142);
+    width: 60px;
+}
+#nomeEntrada {
+    outline: none;
+    border-radius: 6px;
+    border-color: rgb(120, 250, 142);
+    width: 170px;
+}
+#btnEntrada, #btnSaida{
+    background-color: white;
+    outline: nome;
+    border-radius: 6px;
+    width: 80px;
+    margin-top: 10px;
+}
+#entradattxt, #saidattxt {
+    background-color: white;
+    width: 300px;
+    height: 100px;
+    box-shadow: 0px 0px 3px black;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    overflow: scroll;
+}
+#exEntrada, #exSAIDA {
+    background-color: white;
+    border-radius: 6px;
+}

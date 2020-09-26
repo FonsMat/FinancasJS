@@ -1,0 +1,22 @@
+
+#saidas{
+    background-color: rgb(250, 120, 120);
+    color: rgb(255, 255, 255);
+    width: 300px;
+    height: 150px;
+    padding-top: 25px;
+    padding-left: 25px;
+    text-shadow: 0.5px 0.5px 2px black;
+}
+#valorSaida{
+    outline: none;
+    border-radius: 6px;
+    border-color: rgb(250, 120, 120);
+    width: 60px;
+}
+#nomeSaida{
+    outline: none;
+    border-radius: 6px;
+    border-color: rgb(250, 120, 120);
+    width: 170px;
+}

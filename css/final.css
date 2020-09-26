@@ -1,0 +1,18 @@
+#final{
+    width: 300px;
+    height: 150px;
+    box-shadow: 0px 0px 3px black;
+    padding-top: 25px;
+    padding-left: 25px;
+    background-color: white;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+#calcular {
+    background-color: white;
+    outline: nome;
+    border-radius: 6px;
+    width: 100px;
+    margin-bottom: 10px;
+    margin-left: 70px;
+}
